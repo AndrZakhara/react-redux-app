@@ -7,7 +7,9 @@ export class ClientsList extends Component {
     const client = filteredList.map((item) => {
       return(
         <ClientItem
-          key={item.general.firstName + '_' + item.general.lastName} client={item}
+          key={item.general.firstName + '_' + item.general.lastName}
+          client={item}
+          setActiveItem={this.props.setActiveItem}
         />
       )
     });
