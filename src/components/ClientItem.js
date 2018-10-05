@@ -1,3 +1,6 @@
+import React, {Component} from 'react';
+import { Header, Image } from 'semantic-ui-react';
+
 export default class ClientItem extends Component{
 
   render() {
