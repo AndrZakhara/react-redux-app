@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
 import './MainHeader.css';
 
-
 export default class MainHeader extends Component {
   render() {
     return (

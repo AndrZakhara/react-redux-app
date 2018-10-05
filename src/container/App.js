@@ -9,6 +9,11 @@ import { setFilter, setDefaultStore } from '../actions/clientListAction';
 import './App.css';
 
 export class App extends Component {
+  componentDidMount() {
+    if (this.props.clientList.filter === '') {
+      this.props.setDefaultStore()
+    }
+  }
   render() {
     const {clientList, clientDetail, setFilter, setDefaultStore} = this.props;
 
