@@ -10,17 +10,24 @@ import './App.css';
 
 export class App extends Component {
   render() {
-    // console.log(this.props);
     const {clientList, clientDetail, setFilter, setDefaultStore} = this.props;
+
     return (
       <div className="App">
         <MainHeader />
         <div className="l-main">
           <div className="l-clients">
+            <ClientListSearch
+              setFilter={setFilter}
+              setDefaultStore={setDefaultStore}
+            />
             <ClientsList
               clientList={clientList}
             />
           </div>
+          <ClientDetails
+            clientInfo={clientDetail}
+          />
         </div>
       </div>
     );
