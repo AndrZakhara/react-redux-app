@@ -1,4 +1,4 @@
-import { SET_FILTER } from '../actions/clientListAction'
+import { SET_FILTER, SET_DEFAULT_FILTERED_STORE } from '../actions/clientListAction'
 const initialState = {
   filter: '',
   itemList: [
@@ -92,8 +92,33 @@ const initialState = {
 };
 
 function filterUserList(arr, value) {
-  const newArr = arr.map(item => item);
-  return arr;
+  function sortObject(obj) {
+    let boolean = false;
+
+    function sort(obj) {
+      for (let key in obj) {
+
+        if (typeof (obj[key]) === 'object') {
+          sort(obj[key]);
+
+        } else {
+
+          if ((obj[key]).toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+            boolean = true;
+          }
+        }
+      }
+      return boolean;
+    }
+    sort(obj);
+    return boolean;
+  }
+  return arr.filter(obj => sortObject(obj));
+}
+
+function initFilteredUserList(state) {
+  console.log('ccc: '+state);
+  // return Object.assign({}, state.clientList);
 }
 
 export function clientListReducer(state = initialState, action) {
@@ -101,6 +126,10 @@ export function clientListReducer(state = initialState, action) {
   switch (action.type) {
     case SET_FILTER:
       return { ...state, filteredList: filterUserList(state.itemList, action.payload)};
+
+    case SET_DEFAULT_FILTERED_STORE:
+      return { ...state, filteredList: state.itemList};
+
     default:
       return state;
   }
