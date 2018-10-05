@@ -6,16 +6,18 @@ import { ClientsList } from '../components/ClientsList';
 import { ClientDetails } from '../components/ClientDetails';
 import { ClientListSearch } from '../components/ClientListSearch';
 import { setFilter, setDefaultStore } from '../actions/clientListAction';
+import { setActiveItem } from '../actions/clientDetailActon';
 import './App.css';
 
-export class App extends Component {
+class App extends Component {
   componentDidMount() {
     if (this.props.clientList.filter === '') {
       this.props.setDefaultStore()
     }
   }
   render() {
-    const {clientList, clientDetail, setFilter, setDefaultStore} = this.props;
+    // console.log(this.props);
+    const {clientList, clientDetail, setFilter, setDefaultStore, setActiveItem} = this.props;
 
     return (
       <div className="App">
@@ -28,6 +30,7 @@ export class App extends Component {
             />
             <ClientsList
               clientList={clientList}
+              setActiveItem={setActiveItem}
             />
           </div>
           <ClientDetails
@@ -50,6 +53,7 @@ const mapDispatchToProps = dispatch => {
   return {
     setFilter: filter => dispatch(setFilter(filter)),
     setDefaultStore: filter => dispatch(setDefaultStore(filter)),
+    setActiveItem: key => dispatch(setActiveItem(key)),
   }
 };
 
