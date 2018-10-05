@@ -1,4 +1,10 @@
-import { SET_FILTER, SET_DEFAULT_FILTERED_STORE } from '../actions/clientListAction'
+import {
+  SET_FILTER,
+  SET_DEFAULT_FILTERED_STORE,
+  GET_CLIENTS_REQUEST,
+  GET_CLIENTS_SUCCESS
+} from '../actions/clientListAction'
+
 const initialState = {
   filter: '',
   itemList: [
@@ -88,7 +94,8 @@ const initialState = {
     },
   ],
   filteredList: [],
-  clickedItem: '',
+  // clickedItem: '',
+  isFetching: false,
 };
 
 function filterUserList(arr, value) {
@@ -116,19 +123,21 @@ function filterUserList(arr, value) {
   return arr.filter(obj => sortObject(obj));
 }
 
-function initFilteredUserList(state) {
-  console.log('ccc: '+state);
-  // return Object.assign({}, state.clientList);
-}
 
 export function clientListReducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_FILTER:
-      return { ...state, filteredList: filterUserList(state.itemList, action.payload)};
+      return { ...state, filteredList: filterUserList(state.itemList, action.payload) };
 
     case SET_DEFAULT_FILTERED_STORE:
-      return { ...state, filteredList: state.itemList};
+      return { ...state, filteredList: state.itemList };
+
+    case GET_CLIENTS_REQUEST:
+      return { ...state, isFetching: true };
+
+    case GET_CLIENTS_SUCCESS:
+      return { ...state, itemList: action.payload, isFetching: false };
 
     default:
       return state;
