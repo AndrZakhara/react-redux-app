@@ -5,6 +5,7 @@ export const GET_CLIENTS_SUCCESS = 'GET_CLIENTS_SUCCESS';
 
 
 export function setFilter(filter) {
+
   return {
     type: SET_FILTER,
     payload: filter,
@@ -12,6 +13,7 @@ export function setFilter(filter) {
 }
 
 export function setDefaultStore() {
+
   return {
     type: SET_DEFAULT_FILTERED_STORE,
   }
@@ -461,15 +463,18 @@ export function getClients() {
       }
     }
   ]
+
   return dispatch => {
+
     dispatch({
       type: GET_CLIENTS_REQUEST,
     });
+
     setTimeout(() => {
       dispatch({
         type: GET_CLIENTS_SUCCESS,
         payload: clients,
       })
-    }, 3000)
+    }, 3000);
   }
 }

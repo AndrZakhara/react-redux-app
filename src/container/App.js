@@ -5,7 +5,7 @@ import MainHeader from '../components/MainHeader';
 import { ClientsList } from '../components/ClientsList';
 import { ClientDetails } from '../components/ClientDetails';
 import { ClientListSearch } from '../components/ClientListSearch';
-import { setFilter, setDefaultStore } from '../actions/clientListAction';
+import { setFilter, setDefaultStore, getClients } from '../actions/clientListAction';
 import { setActiveItem } from '../actions/clientDetailActon';
 import './App.css';
 
@@ -14,6 +14,7 @@ class App extends Component {
     if (this.props.clientList.filter === '') {
       this.props.setDefaultStore()
     }
+    this.props.getClients();
   }
   render() {
     // console.log(this.props);
@@ -54,6 +55,7 @@ const mapDispatchToProps = dispatch => {
     setFilter: filter => dispatch(setFilter(filter)),
     setDefaultStore: filter => dispatch(setDefaultStore(filter)),
     setActiveItem: key => dispatch(setActiveItem(key)),
+    getClients: () => dispatch(getClients()),
   }
 };
 
