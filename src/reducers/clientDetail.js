@@ -5,11 +5,10 @@ const initialState = {
 };
 
 export function itemDetailReducer(state = initialState, action) {
+
   switch (action.type) {
     case SET_ACTIVE_ITEM:
       return { ...state, selectedItemDetail: action.payload};
-
-
 
     default:
       return state;

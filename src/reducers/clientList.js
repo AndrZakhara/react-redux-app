@@ -18,10 +18,8 @@ function filterUserList(arr, value) {
 
     function sort(obj) {
       for (let key in obj) {
-
         if (typeof (obj[key]) === 'object') {
           sort(obj[key]);
-
         } else {
 
           if ((obj[key]).toLowerCase().indexOf(value.toLowerCase()) !== -1) {
@@ -36,7 +34,6 @@ function filterUserList(arr, value) {
   }
   return arr.filter(obj => sortObject(obj));
 }
-
 
 export function clientListReducer(state = initialState, action) {
 

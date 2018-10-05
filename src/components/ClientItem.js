@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
-import { Header, Image } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
 export default class ClientItem extends Component{
 
   render() {
     const { general, job } = this.props.client;
-    const onSectionClick = (e) => {
-      this.props.setActiveItem(this.props.client);
-    };
 
     return(
-      <div username="Christian Wuckert" onClick={e=>onSectionClick(e)}>
-        <Image className='small-img' circular src={general.avatar} />
+      <div className="c-item" onClick={e=>this.props.setActiveItem(this.props.client)}>
+        <Image className = "c-item__avatar" avatar circular src={general.avatar} verticalAlign='middle' />
         <span>
-        <Header as='h3'>{general.firstName} {general.lastName}</Header>
-        <Header as='h4'>{job.title}</Header>
-      </span>
+          <h5>{general.firstName} {general.lastName}</h5>
+          <span>{job.title}</span>
+        </span>
       </div>
     );
   }

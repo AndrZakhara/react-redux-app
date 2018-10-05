@@ -3,7 +3,6 @@ export const SET_DEFAULT_FILTERED_STORE = 'SET_DEFAULT_FILTERED_STORE';
 export const GET_CLIENTS_REQUEST = 'GET_CLIENTS_REQUEST';
 export const GET_CLIENTS_SUCCESS = 'GET_CLIENTS_SUCCESS';
 
-
 export function setFilter(filter) {
 
   return {
@@ -475,6 +474,6 @@ export function getClients() {
         type: GET_CLIENTS_SUCCESS,
         payload: clients,
       })
-    }, 3000);
+    }, 1000);
   }
 }

@@ -12,15 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.small-img {
-  width: 30px;
-  height: 30px;
-  border: 1px solid gray;
+.l-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  color: #ffffff;
+  padding: 4px 0;
+  box-sizing: border-box;
+  height: 80px;
 }
-.middle-img {
-  width: 128px;
-  height: 128px;
-  margin: 5px;
-  /*border: 1px solid gray;*/
+.c-header_logo {
+  padding: 0;
+  margin: 0;
 }

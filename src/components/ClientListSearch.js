@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 
 export class ClientListSearch extends Component {
+
   render() {
+
     return(
-      <div>
-        <input type="text"
-               placeholder="Search.."
-               onChange={e => this.props.setFilter(e.target.value)}
-        />
-        <Icon name='search' />
+      <div className='c-clients__form'>
+        <Input icon='search' placeholder='Search...' onChange={e => this.props.setFilter(e.target.value)}  fluid/>
       </div>
     )
   }
