@@ -1,0 +1,12 @@
+.l-main {
+    display: flex;
+}
+.l-clients {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.l-client-detail {
+    width: 100%;
+    min-width: 300px;
+}
