@@ -18,7 +18,14 @@ class App extends Component {
   }
   render() {
     // console.log(this.props);
-    const {clientList, clientDetail, setFilter, setDefaultStore, setActiveItem} = this.props;
+    const {
+      clientList,
+      clientDetail,
+      setFilter,
+      setDefaultStore,
+      setActiveItem,
+      isFetching,
+    } = this.props;
 
     return (
       <div className="App">
@@ -32,6 +39,7 @@ class App extends Component {
             <ClientsList
               clientList={clientList}
               setActiveItem={setActiveItem}
+              isFetching={isFetching}
             />
           </div>
           <ClientDetails

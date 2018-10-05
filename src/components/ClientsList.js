@@ -3,7 +3,8 @@ import ClientItem from './ClientItem';
 
 export class ClientsList extends Component {
   render() {
-    const { filter, itemList, clickedItem, filteredList } = this.props.clientList;
+    const { filteredList, isFetching } = this.props.clientList;
+
     const client = filteredList.map((item) => {
       return(
         <ClientItem
@@ -13,9 +14,17 @@ export class ClientsList extends Component {
         />
       )
     });
-    return (
-      client
-    )
+
+    if(isFetching) {
+      return (
+        <div>Loading...</div>
+      )
+    } else {
+      return (
+        client
+      )
+    }
+
   }
 }
 
