@@ -39,7 +39,9 @@ export function clientListReducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_FILTER:
-      return { ...state, filteredList: filterUserList(state.itemList, action.payload) };
+      return { ...state, filteredList: action.payload
+        // filterUserList(state.itemList, action.payload) 
+      };
 
     case SET_DEFAULT_FILTERED_STORE:
       return { ...state, filteredList: state.itemList };

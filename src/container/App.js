@@ -17,7 +17,7 @@ class App extends Component {
     this.props.getClients();
   }
 
-  render() {
+  render() {    
     const {
       clientList,
       clientDetail,
@@ -35,6 +35,7 @@ class App extends Component {
             <ClientListSearch
               setFilter={setFilter}
               setDefaultStore={setDefaultStore}
+              itemList={clientList.itemList}
             />
             <ClientsList
               clientList={clientList}
