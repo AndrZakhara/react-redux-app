@@ -38,6 +38,7 @@ class App extends Component {
               itemList={clientList.itemList}
             />
             <ClientsList
+
               filteredList={filteredList}
               setActiveItem={setActiveItem}
               isFetching={isFetching}

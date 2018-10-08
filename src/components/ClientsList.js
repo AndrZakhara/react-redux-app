@@ -4,9 +4,9 @@ import ClientItem from './ClientItem';
 export class ClientsList extends Component {
 
   render() {
-    const { filteredList, isFetching } = this.props.clientList;
-    const clientItem = filteredList.map((item) => {
+    const { isFetching, filteredList } = this.props;
 
+    const clientItem = filteredList.map((item) => {
       return(
         <ClientItem
           key={item.general.firstName + '_' + item.general.lastName}
