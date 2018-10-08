@@ -4,25 +4,26 @@ import { MainHeader } from '../components/MainHeader';
 import { ClientsList } from '../components/ClientsList';
 import { ClientDetails } from '../components/ClientDetails';
 import { ClientListSearch } from '../components/ClientListSearch';
-import { setFilter, setDefaultStore, getClients } from '../actions/clientListAction';
+import { setFilter, getClients } from '../actions/clientListAction';
 import { setActiveItem } from '../actions/clientDetailActon';
 import './App.css';
 
 class App extends Component {
 
   componentDidMount() {
-    this.props.setDefaultStore()
     this.props.getClients();
   }
 
-  render() {    
+  render() {
+    console.log(this.props);
+    console.log(this.props.clientList.filterValue);
     const {
       clientList,
       clientDetail,
       setFilter,
-      setDefaultStore,
       setActiveItem,
       isFetching,
+      filterValue,
     } = this.props;
 
     return (
@@ -32,7 +33,6 @@ class App extends Component {
           <div className="l-clients">
             <ClientListSearch
               setFilter={setFilter}
-              setDefaultStore={setDefaultStore}
               itemList={clientList.itemList}
             />
             <ClientsList
@@ -62,7 +62,6 @@ const mapDispatchToProps = dispatch => {
 
   return {
     setFilter: (filterValue, itemList) => dispatch(setFilter(filterValue, itemList)),
-    setDefaultStore: filterValue => dispatch(setDefaultStore(filterValue)),
     setActiveItem: key => dispatch(setActiveItem(key)),
     getClients: () => dispatch(getClients()),
   }

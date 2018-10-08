@@ -10,7 +10,7 @@ export class ClientListSearch extends Component {
         <Input
           icon='search' 
           placeholder='Search...' 
-          onChange={e => this.props.setFilter(e.target.value, this.props.itemList)} 
+          onChange={e => this.props.setFilter(e.target.value)}
           fluid
         />
       </div>
