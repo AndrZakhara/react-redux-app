@@ -1,53 +1,12 @@
 export const SET_FILTER = 'SET_FILTER';
-export const SET_DEFAULT_FILTERED_STORE = 'SET_DEFAULT_FILTERED_STORE';
 export const GET_CLIENTS_REQUEST = 'GET_CLIENTS_REQUEST';
 export const GET_CLIENTS_SUCCESS = 'GET_CLIENTS_SUCCESS';
 
-export function setFilter(filterValue, itemList) {
-
-  function filterUserList(arr, value) {    
-    
-    const sortObject = (obj) => {
-      let boolean = false;
-      
-      const sort = (obj) => {
-        
-        for (let key in obj) {
-          
-          if (typeof (obj[key]) === 'object') {
-            sort(obj[key]);
-          } 
-            else {
-  
-            if ((obj[key]).toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-              boolean = true;
-            }
-          }
-        }        
-        return boolean;
-      };
-      sort(obj);
-      
-      return boolean;
-    };
-    return arr.filter(obj => sortObject(obj));
-  };
-  
-  let filteredItemList = filterUserList(itemList, filterValue);
-  
-  return dispatch => {
-
-    dispatch({
-      type: SET_FILTER,
-      payload: filteredItemList,
-    });
-  }
-}
-
-export function setDefaultStore() {
+export function setFilter(filterValue) {
 
   return {
-    type: SET_DEFAULT_FILTERED_STORE,
+    type: SET_FILTER,
+    payload: filterValue
   }
 }
 
