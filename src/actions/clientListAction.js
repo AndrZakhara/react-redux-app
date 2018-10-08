@@ -25,11 +25,11 @@ export function setFilter(filterValue, itemList) {
           }
         }        
         return boolean;
-      }      
+      };
       sort(obj);
       
       return boolean;
-    }    
+    };
     return arr.filter(obj => sortObject(obj));
   };
   
