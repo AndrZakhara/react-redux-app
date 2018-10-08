@@ -1,24 +1,20 @@
 import {
   SET_FILTER,
-  SET_DEFAULT_FILTERED_STORE,
   GET_CLIENTS_REQUEST,
   GET_CLIENTS_SUCCESS
 } from '../actions/clientListAction'
 
 const initialState = {
+  filterValue: '',
   itemList: [],
-  filteredList: [],
-  isFetching: false,
+  isFetching: true,
 };
 
 export function clientListReducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_FILTER:
-      return { ...state, filteredList: action.payload };
-
-    case SET_DEFAULT_FILTERED_STORE:
-      return { ...state, filteredList: state.itemList };
+      return { ...state, filterValue: action.payload };
 
     case GET_CLIENTS_REQUEST:
       return { ...state, isFetching: true };
