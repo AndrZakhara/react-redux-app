@@ -11,9 +11,7 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    if (this.props.clientList.filter === '') {
-      this.props.setDefaultStore()
-    }
+    this.props.setDefaultStore()
     this.props.getClients();
   }
 
@@ -63,8 +61,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
 
   return {
-    setFilter: filter => dispatch(setFilter(filter)),
-    setDefaultStore: filter => dispatch(setDefaultStore(filter)),
+    setFilter: (filterValue, itemList) => dispatch(setFilter(filterValue, itemList)),
+    setDefaultStore: filterValue => dispatch(setDefaultStore(filterValue)),
     setActiveItem: key => dispatch(setActiveItem(key)),
     getClients: () => dispatch(getClients()),
   }

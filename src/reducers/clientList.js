@@ -6,42 +6,16 @@ import {
 } from '../actions/clientListAction'
 
 const initialState = {
-  filter: '',
   itemList: [],
   filteredList: [],
   isFetching: false,
 };
 
-function filterUserList(arr, value) {
-  function sortObject(obj) {
-    let boolean = false;
-
-    function sort(obj) {
-      for (let key in obj) {
-        if (typeof (obj[key]) === 'object') {
-          sort(obj[key]);
-        } else {
-
-          if ((obj[key]).toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-            boolean = true;
-          }
-        }
-      }
-      return boolean;
-    }
-    sort(obj);
-    return boolean;
-  }
-  return arr.filter(obj => sortObject(obj));
-}
-
 export function clientListReducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_FILTER:
-      return { ...state, filteredList: action.payload
-        // filterUserList(state.itemList, action.payload) 
-      };
+      return { ...state, filteredList: action.payload };
 
     case SET_DEFAULT_FILTERED_STORE:
       return { ...state, filteredList: state.itemList };
