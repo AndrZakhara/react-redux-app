@@ -16,15 +16,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.props.clientList.filterValue);
     const {
       clientList,
       clientDetail,
       setFilter,
       setActiveItem,
-      isFetching,
-      filterValue,
       filteredList,
     } = this.props;
 
@@ -38,10 +34,9 @@ class App extends Component {
               itemList={clientList.itemList}
             />
             <ClientsList
-
               filteredList={filteredList}
               setActiveItem={setActiveItem}
-              isFetching={isFetching}
+              isFetching={clientList.isFetching}
             />
           </div>
           <ClientDetails

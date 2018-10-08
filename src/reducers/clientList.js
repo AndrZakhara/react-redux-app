@@ -7,7 +7,7 @@ import {
 const initialState = {
   filterValue: '',
   itemList: [],
-  isFetching: true,
+  isFetching: false,
 };
 
 export function clientListReducer(state = initialState, action) {
