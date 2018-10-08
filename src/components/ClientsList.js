@@ -5,7 +5,7 @@ export class ClientsList extends Component {
 
   render() {
     const { itemList, isFetching } = this.props.clientList;
-    const client = itemList.map((item) => {
+    const clientItem = itemList.map((item) => {
 
       return(
         <ClientItem
@@ -24,7 +24,7 @@ export class ClientsList extends Component {
     } else {
 
       return (
-        client
+        clientItem
       )
     }
   }

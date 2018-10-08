@@ -6,6 +6,7 @@ import { ClientDetails } from '../components/ClientDetails';
 import { ClientListSearch } from '../components/ClientListSearch';
 import { setFilter, getClients } from '../actions/clientListAction';
 import { setActiveItem } from '../actions/clientDetailActon';
+import { getFilteredItemsList } from '../selectors/getFilteredItemsListSelector'
 import './App.css';
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
       setActiveItem,
       isFetching,
       filterValue,
+      filteredList,
     } = this.props;
 
     return (
@@ -36,7 +38,7 @@ class App extends Component {
               itemList={clientList.itemList}
             />
             <ClientsList
-              clientList={clientList}
+              filteredList={filteredList}
               setActiveItem={setActiveItem}
               isFetching={isFetching}
             />
@@ -53,6 +55,7 @@ class App extends Component {
 const mapStateToProps = store => {
 
   return {
+    filteredList: getFilteredItemsList(store),
     clientDetail: store.clientDetail,
     clientList: store.clientList,
   }
