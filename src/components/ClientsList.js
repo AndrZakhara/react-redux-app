@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 import ClientItem from './ClientItem';
+import PropTypes from 'prop-types';
 
 export class ClientsList extends Component {
 
@@ -21,7 +22,8 @@ export class ClientsList extends Component {
       return (
         <div>Loading...</div>
       )
-    } else {
+    }
+    else {
 
       return (
         clientItem
@@ -29,3 +31,9 @@ export class ClientsList extends Component {
     }
   }
 }
+
+ClientsList.propTypes = {
+  filteredList: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  setActiveItem: PropTypes.func.isRequired,
+};
