@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export class ClientListSearch extends Component {
 
   render() {
-    console.log(this.props);
+
     return(
       <div className='c-clients__form'>
         <Input
@@ -17,3 +18,8 @@ export class ClientListSearch extends Component {
     )
   }
 }
+
+ClientListSearch.propTypes = {
+  itemList: PropTypes.array.isRequired,
+  setFilter: PropTypes.func.isRequired
+};
