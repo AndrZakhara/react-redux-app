@@ -31,7 +31,6 @@ class App extends Component {
           <div className="l-clients">
             <ClientListSearch
               setFilter={setFilter}
-              itemList={clientList.itemList}
             />
             <ClientsList
               filteredList={filteredList}

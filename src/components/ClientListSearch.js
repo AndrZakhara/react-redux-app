@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export class ClientListSearch extends Component {
 
@@ -17,3 +18,7 @@ export class ClientListSearch extends Component {
     )
   }
 }
+
+ClientListSearch.propTypes = {
+  setFilter: PropTypes.func.isRequired
+};
