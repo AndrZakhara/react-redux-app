@@ -22,7 +22,6 @@ class App extends Component {
       setFilter,
       setDefaultStore,
       setActiveItem,
-      isFetching,
     } = this.props;
 
     return (
@@ -38,7 +37,7 @@ class App extends Component {
             <ClientsList
               clientList={clientList}
               setActiveItem={setActiveItem}
-              isFetching={isFetching}
+              isFetching={clientList.isFetching}
             />
           </div>
           <ClientDetails
