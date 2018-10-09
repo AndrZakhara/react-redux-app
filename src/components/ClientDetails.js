@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export class ClientDetails extends Component {
   render() {
@@ -33,3 +34,34 @@ export class ClientDetails extends Component {
 
   }
 }
+
+ClientDetails.propTypes = {
+  clientInfo: PropTypes.shape({
+
+    selectedItemDetail: PropTypes.shape({
+
+      address: PropTypes.shape({
+        street: PropTypes.string.isRequired,
+        city: PropTypes.string.isRequired,
+        zipCode: PropTypes.string.isRequired,
+        country: PropTypes.string.isRequired
+      }),
+
+      contact: PropTypes.shape({
+        phone: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired
+      }),
+
+      job: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired
+      }),
+
+      general: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        avatar: PropTypes.string.isRequired
+      })
+    })
+  })
+};
