@@ -35,7 +35,6 @@ class App extends Component {
             <ClientsList
               clientList={clientList}
               setActiveItem={setActiveItem}
-              isFetching={clientList.isFetching}
             />
           </div>
           <ClientDetails

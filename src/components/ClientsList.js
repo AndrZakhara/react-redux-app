@@ -1,9 +1,11 @@
 import React, { Component }from 'react';
 import ClientItem from './ClientItem';
+import PropTypes from 'prop-types';
 
 export class ClientsList extends Component {
 
   render() {
+
     const { filteredList, isFetching } = this.props.clientList;
     const client = filteredList.map((item) => {
 
@@ -29,3 +31,11 @@ export class ClientsList extends Component {
     }
   }
 }
+
+ClientsList.propTypes = {
+  clientList: PropTypes.shape({
+    filteredList: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired
+  }).isRequired,
+  setActiveItem: PropTypes.func.isRequired,
+};
