@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export default class ClientItem extends Component{
 
@@ -17,3 +18,20 @@ export default class ClientItem extends Component{
     );
   }
 }
+
+ClientItem.propTypes = {
+  client: PropTypes.shape({
+
+    job: PropTypes.shape({
+      title: PropTypes.string.isRequired
+    }).isRequired,
+
+    general: PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
+
+  setActiveItem: PropTypes.func.isRequired
+};
