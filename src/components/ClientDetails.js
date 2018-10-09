@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 export class ClientDetails extends Component {
   render() {
-    console.log(this.props);
     const { address, contact, job, general } = this.props.clientInfo.selectedItemDetail;
 
     if(
