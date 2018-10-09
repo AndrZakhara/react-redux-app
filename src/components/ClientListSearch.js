@@ -4,7 +4,7 @@ import { Input } from 'semantic-ui-react';
 export class ClientListSearch extends Component {
 
   render() {
-    
+    console.log(this.props);
     return(
       <div className='c-clients__form'>
         <Input

@@ -11,7 +11,7 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    this.props.setDefaultStore()
+    this.props.setDefaultStore();
     this.props.getClients();
   }
 
@@ -20,7 +20,6 @@ class App extends Component {
       clientList,
       clientDetail,
       setFilter,
-      setDefaultStore,
       setActiveItem,
     } = this.props;
 
@@ -31,7 +30,6 @@ class App extends Component {
           <div className="l-clients">
             <ClientListSearch
               setFilter={setFilter}
-              setDefaultStore={setDefaultStore}
               itemList={clientList.itemList}
             />
             <ClientsList
